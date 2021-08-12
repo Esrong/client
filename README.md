@@ -1,10 +1,11 @@
-# Nazox
+# CRVS
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+this is the front end server under the enviroment you can use https://immense-temple-80317.herokuapp.com/ which backend of this front end
 
 ## Code scaffolding
 
@@ -23,5 +24,5 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+https://github.com/Esrong/
++251911466024
