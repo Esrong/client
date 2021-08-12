@@ -1,0 +1,268 @@
+<div class="container-fluid">
+  <app-pagetitle title="MARRIAGE REGISTRATION" [breadcrumbItems]="breadCrumbItems"></app-pagetitle>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <!-- <h5 class="card-title">Registration Form</h5> -->
+        <div class="card-body">
+          <aw-wizard>
+            <aw-wizard-step stepTitle="FAMILY INFORMATION">
+             
+              <!-- <div class="alert alert-success mb-4" role="alert">
+                Enter  email address of created adccount so that the pesron it self can  reset password and instructions will be sent to him!
+              </div> -->
+             
+          
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title mb-4">Marriage</h4>
+                      <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+                        <ngb-alert type="danger" *ngIf="error"  dismissible="true"> Groom ID: {{ error }}</ngb-alert>
+                        <ngb-alert type="danger" *ngIf="error1"  dismissible="true"> Bride ID : {{ error1 }}</ngb-alert>
+                        <ngb-alert type="success" *ngIf="successmsg" [dismissible]="false">Groom ID is found continue to register.
+                          
+                        </ngb-alert>
+                        <ngb-alert type="success" *ngIf="successmsg1" [dismissible]="false">Bride ID is found continue to register.
+                          
+                        </ngb-alert>
+                        <div class="row">
+                            <div class="col-md-6">     
+                              <div class="form-group mb-4">
+                                <label>Groom ID</label>
+                                <input type="text"
+                                formControlName="groom"
+                                 class="form-control" 
+                                 name="groom" 
+                                 id="groom" 
+                                 placeholder="Groom ID" 
+                                  [ngClass]="{'is-invalid': onsubmit && type.groom.errors}"  />
+                                 <div *ngIf="onSubmit && type.groom.errors" class="invalid-feedback">
+                                   <span *ngIf="type.groom.errors.required">Groom id needed to continue.</span>
+                                 </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label>Bride Id</label>
+                                <input type="text" 
+                                formControlName="bride"
+                                class="form-control"
+                                 name="bride"
+                                  id="bride" 
+                                  placeholder="Bride ID"  
+                                    [ngClass]="{'is-invalid': onsubmit && type.bride.errors}"  />
+                                  <div *ngIf="onSubmit && type.bride.errors" class="invalid-feedback">
+                                    <span *ngIf="type.bride.errors.required">Bride id needed to continue.</span>
+                                  </div>
+                            </div>                       
+                             <!-- <div class="form-group mb-4">
+                                 <label>Female ID</label>
+                                 <input type="text" 
+                                 formControlName="civil"
+                                 class="form-control"
+                                 placeholder="Enter the Marriage ID"  
+                                 [ngClass]="{'is-invalid': onsubmit && type.civil.errors}"  />
+                                 <div *ngIf="onSubmit && type.civil.errors" class="invalid-feedback">
+                                   <span *ngIf="type.civil.errors.required">needed to continue.</span>
+                                 </div>
+                             </div>     
+                             <div class="form-group mb-4">
+                              <label>Male ID</label>
+                              <input type="text" 
+                              formControlName="civil2"
+                              class="form-control"
+                              placeholder="Enter the Marriage ID"  
+                              [ngClass]="{'is-invalid': onsubmit && type.civil2.errors}"  />
+                              <div *ngIf="onSubmit && type.civil2.errors" class="invalid-feedback">
+                                <span *ngIf="type.civil2.errors.required">needed to continue.</span>
+                              </div>
+                          </div>                          -->
+                           </div>
+                            <div class="col-md-6">                            
+                              <div class="form-group mb-4" *ngFor="let marriage of marriages" let i = index;>
+                                  <label>Result</label>
+                               <p>{{marriage.id}}</p>
+                               <p>{{marriage.place}}</p>
+                              </div>                            
+                             </div>
+                            
+                         
+                          
+                        </div>
+                        <button class="btn btn-primary float-right" type="submit">submit</button>              
+                    </form> 
+                    
+                       
+                    </div>
+                  </div>
+                  <button  [disabled]="loading" awNextStep class="btn btn-success float-left"
+                   type="submit" >
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1" ></span>
+                    Next Step
+                </button>
+                </div>
+          
+              </div>
+
+              
+            </aw-wizard-step>  
+           
+            <aw-wizard-step stepTitle="MARRIAGE FORM" awOptionalStep>
+   
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title mb-4">FORM</h4>
+                 
+                      <form [formGroup]="createMarriageForm" (ngSubmit)="onPush()">
+                          <div class="row">
+                              
+                            <div class="col-md-6">  
+             
+                  
+                               <div class="form-group mb-4"> 
+                                <div class="form-group"> 
+                                 <label>Region</label>
+                                 <select class="form-control select2"  formControlName="region">
+                                  <option value="Oromia">Oromia</option>
+                                    <option value="Addis Ababa">Addis Ababa</option>
+                                    <option value="Afar">Afar</option>    
+                                    <option value="Amhara">Amhara</option>
+                                    <option value="Benishangul-Gumuz">Benishangul-Gumuz</option>  
+                                    <option value="Dire Dawa">Dire Dawa</option>
+                                    <option value="Gambela">Gambela</option>  
+                                    <option value="Harari">Harari</option>
+                                    <option value="Sidama">Sidama</option>   
+                                    <option value="Somali">Somali</option>   
+                                    <option value="Southern Nations,Nationalities,and Peoples">Southern Nations,Nationalities,and Peoples</option>
+                                    <option value="Tigray">Tigray</option>                   
+                                 </select>
+                                 </div>
+                             </div>
+                             <div class="form-group mb-4">
+                              <label>Wereda</label>
+                              <input type="text" 
+                              formControlName="place"
+                              class="form-control" 
+                              name="place"
+                               id="place" 
+                               placeholder="Wereda">
+                          </div>
+                               <div class="form-group mb-4">
+                                  <label>Marriage Date</label>
+                                  <input type="text"
+                                  formControlName="marriageDate"
+                                   class="form-control"
+                                    name="marriageDate" 
+                                    id="marriageDate" 
+                                    type="date" 
+                                    value="2019-08-19"
+                                    placeholder="Marriage Date" >
+                              </div>
+                          
+
+                              <div class="form-group mb-4"> 
+                                <div class="form-group"> 
+                                 <label>Marriage Form</label>
+                                 <select class="form-control select2" name="marriageForm" 
+                                 id="marriageForm" formControlName="marriageForm">
+                                    <option value="Law">By the law</option>
+                                    <option value="Religion">Religion</option>                
+                                 </select>
+                                 </div>
+                             </div>
+                               <!-- <div class="form-group mb-4">
+                                   <label>Groom ID</label>
+                                   <input type="text"
+                                   formControlName="groom"
+                                    class="form-control" 
+                                    name="groom" 
+                                    id="groom" 
+                                    placeholder="Groom ID" >
+                               </div>
+                               <div class="form-group mb-4">
+                                   <label>Bride Id</label>
+                                   <input type="text" 
+                                   formControlName="bride"
+                                   class="form-control"
+                                    name="bride"
+                                     id="bride" 
+                                     placeholder="Bride ID" >
+                               </div> -->
+                  
+                          </div>
+                          <div class="col-md-6">
+                   
+                              <div class="form-group mb-4">
+                                  <label>Child ID</label>
+                                  <input type="text"
+                                  formControlName="child"
+                                  class="form-control" 
+                                  name="child" 
+                                  id="child"
+                                  placeholder="Child Id" >
+                              </div>
+                              <div class="form-group mb-4">
+                                  <label>Bride Witness One ID </label>
+                                  <input type="text" 
+                                  formControlName="brideWitnessOne"
+                                  class="form-control"
+                                  name="brideWitnessOne"
+                                  id="brideWitnessOne"
+                                      placeholder="brideWitnessOne" >
+                              </div>
+                              <div class="form-group mb-4">
+                                  <label>Bride Witness Two ID </label>
+                                  <input type="text" 
+                                  formControlName="brideWitnessTwo"
+                                  class="form-control"
+                                  name="brideWitnessTwo"
+                                  id="brideWitnessTwo"
+                                  placeholder="brideWitnessTwo" >
+                              </div>
+                              <div class="form-group mb-4">
+                                  <label>Groom Witness One ID </label>
+                                  <input type="text" 
+                                  formControlName="groomWitnessOne"
+                                  class="form-control"
+                                  name="groomWitnessOne"
+                                  id="groomWitnessOne"
+                                  placeholder="groomWitnessOne" >
+                              </div>
+                              <div class="form-group mb-4">
+                                  <label>Groom Witness Two ID </label>
+                                  <input type="text" 
+                                  formControlName="groomWitnessTwo"
+                                  class="form-control"
+                                  name="groomWitnessTwo"
+                                  id="groomWitnessTwo"
+                                  placeholder="groomWitness Two" >
+                              </div>     
+                          </div>
+                              
+                            
+                            
+                          </div>
+                          <button class="btn btn-primary float-right" type="submit">submit</button>              
+                      </form>     
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button [disabled]="loading" awPreviousStep class="btn btn-success float-left" type="submit" >
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1" ></span>
+                Back Step
+            </button>
+          
+           <!-- <button type="button"  awPreviousStep  class="btn btn-primary">Back</button> -->
+            </aw-wizard-step>      
+          </aw-wizard>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  <!-- end row -->
+</div>
+

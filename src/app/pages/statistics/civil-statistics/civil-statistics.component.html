@@ -1,0 +1,34 @@
+<table class="table table-centered datatable dt-responsive nowrap table-striped"
+style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+<thead class="thead-light">
+  <tr>
+    <th style="width: 10px;">
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="customercheck" />
+        <label class="custom-control-label" for="customercheck">&nbsp;</label>
+      </div>
+    </th>
+    <th>id</th>
+    <th>name</th>
+   
+           
+    <th style="width: 120px;">Action</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let civil of civils; let i= index">
+    <td>
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" :id="customercheck{{i}}" />
+        <label class="custom-control-label" :for="customercheck{{i}}">&nbsp;</label>
+      </div>
+    </td>
+    <td>{{civil.image}}</td>
+    <!-- <td>{{civil.image[]}}</td> -->
+
+    <td>
+
+    </td>
+  </tr>
+</tbody>
+</table>

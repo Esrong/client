@@ -1,0 +1,252 @@
+<div class="container-fluid">
+    <app-pagetitle title="Civil Registration" [breadcrumbItems]="breadCrumbItems"></app-pagetitle>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title mb-4">Registration Form</h4>
+            <form [formGroup]="createCivilForm" (ngSubmit)="onSubmit()">
+                    <!-- <form (ngSubmit)="typeSubmit()" [formGroup]="typeValidationForm"></form> -->
+                    <ngb-alert type="danger" *ngIf="error" [dismissible]="false">{{ error }}</ngb-alert>
+                    <ngb-alert type="success" *ngIf="successmsg" [dismissible]="false">Registeration successfull.
+                    </ngb-alert>
+                <div class="row">
+                    <div class="col-md-6">                        
+                         <div class="form-group mb-4">
+                             <label>First Name</label>
+                             <input type="text" 
+                             formControlName="name"
+                             class="form-control" 
+                             name="name"
+                             id="name" 
+                             placeholder="First Name" 
+                             [ngClass]="{'is-invalid': onsubmit && type.name.errors}"  />
+                             <div *ngIf="onSubmit && type.name.errors" class="invalid-feedback">
+                               <span *ngIf="type.name.errors.required">Name is required.</span>
+                             </div>
+                         </div>
+                         <div class="form-group mb-4">
+                             <label>Father Name</label>
+                             <input type="text"
+                              formControlName="fname"
+                              class="form-control" 
+                              name="fname" 
+                              id="fname" 
+                              placeholder="Father Name" 
+                              [ngClass]="{'is-invalid': onsubmit && type.fname.errors}"  />
+                              <div *ngIf="onSubmit && type.fname.errors" class="invalid-feedback">
+                                <span *ngIf="type.fname.errors.required">Father is required.</span>
+                              </div>
+                         </div>
+                         <div class="form-group mb-4">
+                             <label>Grand Name</label>
+                             <input type="text" 
+                             formControlName="gname"
+                             class="form-control"
+                              name="gname"
+                               id="gname" 
+                               placeholder="GrandFather Name">
+                         </div>
+                         <div class="form-group mb-4"> 
+                            <div class="form-group"> 
+                             <label>Gender</label>
+                             <select class="form-control select2"  formControlName="gender">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>                         
+                             </select>
+                             </div>
+
+                         </div>
+                         <div class="form-group mb-4">
+                          <label>Image</label>
+                          <!-- <input type="url" 
+                          formControlName="image"
+                          class="form-control"
+                           name="image"
+                            id="image" 
+                            placeholder="upload image"
+                            > -->
+                            <!-- <dropzone formControlName="image"   name="image"
+                            id="image" class="dropzone">
+                          </dropzone> -->
+                          <br>
+                          <input 
+                          formControlName="document" 
+                          type="file" ng2FileSelect accept=".png" 
+                          multiple/>
+                          <br/>
+                          <br>
+                          <div class="drop-zone">
+                          <div ng2FileDrop class="drop-zone">
+                             Drag and drop files to upload
+                          </div>
+                          </div>
+                    
+                      </div>
+                         <div class="form-group mb-4">
+                             <label>Birth Date</label>
+                             <input type="text"
+                             formControlName="birthDate"
+                              class="form-control"
+                              type="date" 
+                              value="2019-08-19"
+                               name="birthDate" 
+                               id="birthDate" 
+                               placeholder="Birth Date" 
+                                [ngClass]="{'is-invalid': onsubmit && type.birthDate.errors}"  />
+                               <div *ngIf="onSubmit && type.birthDate.errors" class="invalid-feedback">
+                                 <span *ngIf="type.birthDate.errors.required">Birth Date is Required.</span>
+                               </div>
+                         </div>
+                         <div class="form-group mb-4">
+                             <label>Age</label>
+                             <input type="text" 
+                             formControlName="age"
+                             class="form-control" 
+                             name="age" 
+                             id="age"
+                              placeholder="Age" 
+                              [ngClass]="{'is-invalid': onsubmit && type.age.errors}"  />
+                              <div *ngIf="onSubmit && type.age.errors" class="invalid-feedback">
+                                <span *ngIf="type.age.errors.required">Age is required.</span>
+                              </div>
+                         </div>
+                         <div class="form-group mb-4">
+                             <label>Place of birth</label>
+                             <input type="text" 
+                             formControlName="birthPlace"
+                             class="form-control"
+                              name="birthPlace" 
+                              id="birthPlace"
+                              placeholder="Place of birth"
+                               [ngClass]="{'is-invalid': onsubmit && type.birthPlace.errors}"  />
+                              <div *ngIf="onSubmit && type.birthPlace.errors" class="invalid-feedback">
+                                <span *ngIf="type.birthPlace.errors.required">Place Birth is required.</span>
+                              </div>
+                         </div>  
+            
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group mb-4">
+                            <label>Citizenship </label>
+                            <input type="text" 
+                            formControlName="citizenship"
+                            class="form-control"
+                             name="citizenship"
+                             value="Ethiopia"
+                              id="citizenship"
+                               placeholder="Citizenship" />
+                          
+                        </div>
+
+                     <div class="form-group mb-4">
+                         <label>Ethnic Origin</label>
+                         <input type="text"
+                         formControlName="ethnicOrigin"
+                          class="form-control" 
+                          name="ethnicOrigin" 
+                          id="ethnicOrigin"
+                           placeholder="ethnic origin"
+                           [ngClass]="{'is-invalid': onsubmit && type.ethnicOrigin.errors}"  />
+                           <div *ngIf="onSubmit && type.ethnicOrigin.errors" class="invalid-feedback">
+                             <span *ngIf="type.ethnicOrigin.errors.required">Ethnic Origin is required!</span>
+                           </div>
+                     </div>
+                     <div class="form-group mb-4">
+                        <label>Religion </label>
+                        <input type="text" 
+                         formControlName="religion"
+                         class="form-control"
+                         name="religion"
+                         id="religion"
+                         placeholder="religion" 
+                         [ngClass]="{'is-invalid': onsubmit && type.religion.errors}"  />
+                         <div *ngIf="onSubmit && type.religion.errors" class="invalid-feedback">
+                           <span *ngIf="type.religion.errors.required">Religion is required.</span>
+                         </div>
+                    </div>
+         
+                   
+                     <!-- <div class="form-group mb-4">
+                         <label>Region</label>
+                         <input type="text" 
+                         formControlName="region"
+                         class="form-control"
+                          name="region" 
+                          id="region"
+                           placeholder="Region" 
+                           [ngClass]="{'is-invalid': onsubmit && type.region.errors}"  />
+                           <div *ngIf="onSubmit && type.region.errors" class="invalid-feedback">
+                             <span *ngIf="type.region.errors.required">Father is required.</span>
+                           </div>
+                     </div> -->
+                     <div class="form-group mb-4"> 
+                      <div class="form-group"> 
+                       <label>Region</label>
+                       <select class="form-control select2"  formControlName="region">
+                        
+                        <option value="Oromia">Oromia</option>
+                          <option value="Addis Ababa">Addis Ababa</option>
+                          <option value="Afar">Afar</option>    
+                          <option value="Amhara">Amhara</option>
+                          <option value="Benishangul-Gumuz">Benishangul-Gumuz</option>  
+                          <option value="Dire Dawa">Dire Dawa</option>
+                          <option value="Gambela">Gambela</option>  
+                          <option value="Harari">Harari</option>
+                          <option value="Sidama">Sidama</option>   
+                          <option value="Somali">Somali</option>   
+                          <option value="Southern Nations,Nationalities,and Peoples">Southern Nations,Nationalities,and Peoples</option>
+                          <option value="Tigray">Tigray</option>                   
+                       </select>
+                       </div>
+                   </div>
+                     <div class="form-group mb-4">
+                         <label>zone</label>
+                         <input type="text" 
+                         formControlName="zone"
+                         class="form-control" 
+                         name="zone" 
+                         id="zone"
+                          placeholder="zone" 
+                          [ngClass]="{'is-invalid': onsubmit && type.zone.errors}"  />
+                          <div *ngIf="onSubmit && type.zone.errors" class="invalid-feedback">
+                            <span *ngIf="type.zone.errors.required">Zone is required.</span>
+                          </div>
+                     </div>
+                     <div class="form-group mb-4">
+                         <label>wereda</label>
+                         <input type="text" 
+                         formControlName="wereda"
+                         class="form-control"
+                          name="wereda" 
+                          id="wereda"
+                          placeholder="wereda"
+                           [ngClass]="{'is-invalid': onsubmit && type.wereda.errors}"  />
+                          <div *ngIf="onSubmit && type.wereda.errors" class="invalid-feedback">
+                            <span *ngIf="type.wereda.errors.required">Wereda is required.</span>
+                          </div>
+                     </div>
+                     <div class="form-group mb-4">
+                         <label>Kebele</label>
+                         <input type="text" 
+                         formControlName="kebele"
+                         class="form-control"
+                          name="kebele"
+                           id="kebele"
+                            placeholder="kebele" 
+                            [ngClass]="{'is-invalid': onsubmit && type.kebele.errors}"  />
+                            <div *ngIf="onSubmit && type.kebele.errors" class="invalid-feedback">
+                              <span *ngIf="type.kebele.errors.required">Kebele is required.</span>
+                            </div>
+                     </div>                   
+                    </div>
+                  
+                </div>
+                <!-- <input class="btn sbtn-primary float-right" type="submit"  [disabled]="createCivilForm.invalid" /> -->
+                <button class="btn btn-primary float-right" type="submit">Submit</button>              
+            </form>     
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

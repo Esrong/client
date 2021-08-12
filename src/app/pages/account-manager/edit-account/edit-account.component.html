@@ -1,0 +1,220 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-pagetitle title="Civil Registration" [breadcrumbItems]="breadCrumbItems"></app-pagetitle>
+  <!-- end page title -->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title mb-4">Registration Form</h4>
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                  <ngb-alert type="danger" *ngIf="error" [dismissible]="false">{{ error }}</ngb-alert>
+                  <ngb-alert type="success" *ngIf="successmsg" [dismissible]="false">Update successfull.
+                  </ngb-alert>
+              <div class="row">
+                  <div class="col-md-6">                        
+                          <div class="form-group mb-4">
+                            <label>First Name</label>
+                            <input type="text" 
+                            formControlName="firstName"
+                            class="form-control" 
+                            name="firstName"
+                            id="firstName" 
+                            placeholder="First Name" 
+                            [ngClass]="{'is-invalid': onsubmit && type.firstName.errors}"  />
+                            <div *ngIf="onSubmit && type.firstName.errors" class="invalid-feedback">
+                              <span *ngIf="type.firstName.errors.required">Name is required.</span>
+                            </div>
+                        </div>
+                        <div class="form-group mb-4">
+                          <label>Father Name</label>
+                          <input type="text"
+                           formControlName="lastName"
+                           class="form-control" 
+                           name="lastName" 
+                           id="lastName" 
+                           placeholder="Father Name" 
+                           [ngClass]="{'is-invalid': onsubmit && type.lastName.errors}"  />
+                           <div *ngIf="onSubmit && type.lastName.errors" class="invalid-feedback">
+                             <span *ngIf="type.lastName.errors.required">Father is required.</span>
+                           </div>
+                      </div>
+                      <div class="form-group mb-4"> 
+                        <div class="form-group"> 
+                         <label>Gender</label>
+                         <select class="form-control select2"  formControlName="gender">
+                            <option value="Male" >male</option>
+                            <option value="Female" >female</option>                         
+                         </select>
+                         </div>
+
+                       </div>
+                       <div class="form-group mb-4">
+                        <label>Age</label>
+                        <input type="text" 
+                        formControlName="age"
+                        class="form-control" 
+                        name="age" 
+                        id="age"
+                         placeholder="Age" 
+                         [ngClass]="{'is-invalid': onsubmit && type.age.errors}"  />
+                         <div *ngIf="onSubmit && type.age.errors" class="invalid-feedback">
+                           <span *ngIf="type.age.errors.required">Age is required.</span>
+                         </div>
+                      </div> 
+                      <div class="form-group mb-4">
+                        <label>Role </label>
+                        <select formControlName="role"  class="form-control" [ngClass]="{ 'is-invalid': onsubmit && type.role.errors }" id="role">
+                         <option value="User">User</option>
+                         <option value="Admin">Admin</option>
+                         <div *ngIf="onSubmit && type.role.errors" class="invalid-feedback">
+                           <span *ngIf="type.role.errors.required">Father is required.</span>
+                          </div>
+                        </select>
+                       </div>
+                       <div class="form-group mb-4">
+                        <label>Email</label>
+                        <input type="text" 
+                        formControlName="email"
+                        class="form-control"
+                         name="email"
+                          id="email" 
+                          placeholder="Email Adress"    
+                           [ngClass]="{'is-invalid': onsubmit && type.email.errors}"  />
+                          <div *ngIf="onSubmit && type.email.errors" class="invalid-feedback">
+                            <span *ngIf="type.email.errors.required">Father is required.</span>
+                          </div>
+                     </div>
+                     <div class="form-group mb-4">
+                       <label>phone</label>
+                        <input type="text"
+                         formControlName="phone"
+                         class="form-control"
+                         type="phone" 
+                         name="phone" 
+                         id="phone" 
+                         placeholder="phone number" 
+                         [ngClass]="{'is-invalid': onsubmit && type.phone.errors}"  />
+                        <div *ngIf="onSubmit && type.phone.errors" class="invalid-feedback">
+                          <span *ngIf="type.phone.errors.required">Father is required.</span>
+                        </div>
+                      </div>  
+          
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group mb-4">
+                      <label>Citizenship </label>
+                      <input type="text" 
+                       formControlName="citizenship"
+                       class="form-control"
+                       name="citizenship"
+                       value="Ethiopia"
+                       id="citizenship"
+                       placeholder="Citizenship" 
+                       [ngClass]="{'is-invalid': onsubmit && type.citizenship.errors}"  />
+                       <div *ngIf="onSubmit && type.citizenship.errors" class="invalid-feedback">
+                        <span *ngIf="type.citizenship.errors.required">Citizenship is required.</span>
+                        </div>
+                     </div>
+
+                     <div class="form-group mb-4">
+                      <label>Region</label>
+                       <input type="text" 
+                        formControlName="region"
+                        class="form-control"
+                        name="region" 
+                        id="region"
+                        placeholder="Region" 
+                        [ngClass]="{'is-invalid': onsubmit && type.region.errors}"  />
+                       <div *ngIf="onSubmit && type.region.errors" class="invalid-feedback">
+                         <span *ngIf="type.region.errors.required">Father is required.</span>
+                       </div>
+                    </div>
+                  <div class="form-group mb-4">
+                    <label>zone</label>
+                    <input type="text" 
+                    formControlName="zone"
+                    class="form-control" 
+                    name="zone" 
+                    id="zone"
+                     placeholder="zone" 
+                     [ngClass]="{'is-invalid': onsubmit && type.zone.errors}"  />
+                     <div *ngIf="onSubmit && type.zone.errors" class="invalid-feedback">
+                       <span *ngIf="type.zone.errors.required">Father is required.</span>
+                     </div>
+                 </div>
+                   <div class="form-group mb-4">
+                    <label>wereda</label>
+                    <input type="text" 
+                    formControlName="wereda"
+                    class="form-control"
+                     name="wereda" 
+                     id="wereda"
+                     placeholder="wereda"
+                      [ngClass]="{'is-invalid': onsubmit && type.wereda.errors}"  />
+                     <div *ngIf="onSubmit && type.wereda.errors" class="invalid-feedback">
+                       <span *ngIf="type.wereda.errors.required">Father is required.</span>
+                     </div>
+                </div>
+                   <div class="form-group mb-4">
+                       <label>Kebele</label>
+                       <input type="text" 
+                       formControlName="kebele"
+                       class="form-control"
+                        name="kebele"
+                         id="kebele"
+                          placeholder="kebele" 
+                          [ngClass]="{'is-invalid': onsubmit && type.kebele.errors}"  />
+                          <div *ngIf="onSubmit && type.kebele.errors" class="invalid-feedback">
+                            <span *ngIf="type.kebele.errors.required">Father is required.</span>
+                          </div>
+                   </div>  
+    
+                  <div class="alert alert-success mb-4" role="alert">
+                 leave blank to use the same password
+                 </div>
+                    <div class="form-group mb-2">
+            
+                    <label>Password</label>
+                    <input type="password"
+                     formControlName="password"
+                     class="form-control"
+                      name="password" 
+                      id="password"
+                      placeholder="password"
+                      [ngClass]="{'is-invalid': onsubmit && type.password.errors}"  />
+                     <div *ngIf="onSubmit && type.password.errors" class="invalid-feedback">
+                       <span *ngIf="type.password.errors.required">Father is required.</span>
+                      </div>
+
+                    </div>   
+                    <div class="form-group mb-2">
+                    <label>confirmPassword</label>
+                    <input type="password"
+                    formControlName="confirmPassword"
+                    class="form-control"
+                     name="confirmPassword"
+                      id="confirmPassword"
+                       placeholder="Confirm-password" 
+                       [ngClass]="{'is-invalid': onsubmit && type.confirmPassword.errors}"  />
+                       <div *ngIf="onSubmit && type.confirmPassword.errors" class="invalid-feedback">
+                         <span *ngIf="type.confirmPassword.errors.required">Father is required.</span>
+                       </div>
+                       <!-- <div *ngIf="type.confirmPassword.errors.mustMatch">Passwords must match</div> -->
+                   </div>                
+                 </div>
+                
+              </div>
+              <button [disabled]="loading"class="btn btn-primary float-right" type="submit"  [disabled]="form.invalid">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Update
+            </button>
+              <!-- <input class="btn btn-primary float-right" type="submit"  [disabled]="form.invalid" /> -->
+              <!-- <button class="btn btn-primary float-right" type="submit">submit</button>               -->
+          </form>     
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

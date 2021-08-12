@@ -1,0 +1,107 @@
+<div class="container-fluid">
+    <app-pagetitle title="Registred Civil" [breadcrumbItems]="breadCrumbItems"></app-pagetitle>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div>
+                <!--  -->
+                <a routerLink="/civil" href="javascript:void(0);" class="btn btn-success mb-2">
+                  <i class="mdi mdi-plus mr-2"></i> Add Civil   
+                </a>
+              </div>
+              <div>
+                <!--  -->
+                <a routerLink="/birth" href="javascript:void(0);" class="btn btn-secondary mb-2">
+                  <i class="mdi mdi-plus mr-2"></i> Add Birth
+                </a>
+              </div>
+              <div>
+                <!--  -->
+                <a routerLink="/death" href="javascript:void(0);" class="btn btn-success mb-2">
+                  <i class="mdi mdi-plus mr-2"></i> Add Death
+                </a>
+              </div>
+              <div>
+                <!--  -->
+                <a routerLink="/marriage" href="javascript:void(0);" class="btn btn-secondary mb-2">
+                  <i class="mdi mdi-plus mr-2"></i> Add Marriage  
+                </a>
+              </div>
+              <div>
+                <!--  -->
+                <a routerLink="/divorce" href="javascript:void(0);" class="btn btn-success mb-2">
+                  <i class="mdi mdi-plus mr-2"></i> Add Divorce
+                </a>
+              </div>
+            
+         
+            </div>
+     
+     
+            <div class="table-responsive mt-3">
+              <!-- <p>All accounts from secure (admin only) api end point:</p> -->
+              <!-- <a routerLink="/edit-account" class="btn btn-sm btn-success mb-2">Create Account</a> -->
+  
+              <table class="table table-centered datatable dt-responsive nowrap table-striped"
+                style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                <thead class="thead-light">
+                  <tr>
+                    <th style="width: 10px;">
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customercheck" />
+                        <label class="custom-control-label" for="customercheck">&nbsp;</label>
+                      </div>
+                    </th>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Birth Date</th>
+                    <th>Age</th>
+                    <th>Image</th>
+                    <th>Birth Place</th>
+                    <th >Citizenship</th>                                 
+                    <th>ethnic Origin</th>  
+                    <th>Adress</th>              
+                    <th style="width: 120px;">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let civil of civils; let i= index">
+                    <td>
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" :id="customercheck{{i}}" />
+                        <label class="custom-control-label" :for="customercheck{{i}}">&nbsp;</label>
+                      </div>
+                    </td>
+                    <td>{{civil._id}}</td>
+                    <td>{{civil.name}} {{civil.fname}} {{civil.gname}}</td>
+                    <td>{{civil.gender}}</td>
+                    <td>{{civil.birthDate}}</td>
+                    <td>{{civil.age}}</td>
+                    <td>{{civil.image}}</td>
+                    <td>{{civil.birthPlace}}</td>
+                    <td>{{civil.citizenship}}</td>
+                    <td>{{civil.ethnicOrigin}}</td>         
+                    <td>{{civil.region}} {{civil.zone}} {{civil.wereda}} {{civil.kebele}}</td>
+                    <td>
+                      <a routerLink="/civil-update/{{civil._id}}" href="javascript:void(0);" class="mr-3 text-primary" v-b-tooltip.hover title="Edit">
+                        <i class="mdi mdi-pencil font-size-18"></i>
+                      </a>
+                      <a href="javascript:void(0);" (click)="confirm(civil._id,i)" class="text-danger" v-b-tooltip.hover title="Delete">
+                        <i class="mdi mdi-trash-can font-size-18"></i>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  

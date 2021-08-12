@@ -1,0 +1,116 @@
+<div class="container-fluid">
+
+    <!-- start page title -->
+    <app-pagetitle title="Form mask" [breadcrumbItems]="breadCrumbItems"></app-pagetitle>
+    <!-- end page title -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title mb-4">Example</h4>
+            <form [formGroup]="createDeathForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                    
+                    <div class="col-md-6">  
+                      <div class="form-group mb-4">
+                        <label>Civil ID</label>
+                        <input type="text"
+                        formControlName="details"
+                         class="form-control" 
+                         name="details" 
+                         id="details"
+                          placeholder="Details" >
+                    </div>
+             
+                   
+                         <div class="form-group mb-4">
+                            <label >Place of Death</label>
+                            <input type="text" 
+                            formControlName="place"
+                            class="form-control"
+                             name="place" 
+                             id="place"
+                             placeholder="Place of Death" >
+                        </div> 
+                         <div class="form-group mb-4">
+                             <label>Evidance</label>
+                             <input type="text"
+                             formControlName="evidance"
+                              class="form-control" 
+                              name="evidance" 
+                              id="evidance" 
+                              placeholder="Evidance" >
+                         </div>
+                         <!-- <div class="form-group mb-4">
+                             <label>Grand Name</label>
+                             <input type="text" 
+                             formControlName="gname"
+                             class="form-control"
+                              name="gname"
+                               id="gname" 
+                               placeholder="Grand Name" >
+                         </div> -->
+               
+                         
+            
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group mb-4">
+                            <label>Death Date</label>
+                            <input type="text"
+                            formControlName="deathDate"
+                             class="form-control"
+                              name="deathDate" 
+                              id="deathDate" 
+                              placeholder="Death Date" >
+                        </div>
+                        <div class="form-group mb-4"> 
+                          <div class="form-group"> 
+                           <label>Region</label>
+                           <select class="form-control select2"  formControlName="region">
+                              <option value="Addis Ababa">Addis Ababa</option>
+                              <option value="Afar">Afar</option>    
+                              <option value="Amhara">Amhara</option>
+                              <option value="Benishangul-Gumuz">Benishangul-Gumuz</option>  
+                              <option value="Dire Dawa">Dire Dawa</option>
+                              <option value="Gambela">Harary</option>  
+                              <option value="Harari">Harari</option>
+                              <option value="Sidama">Sidama</option>   
+                              <option value="Somali">Somali</option>   
+                              <option value="Southern Nations,Nationalities,and Peoples' ">HSouthern Nations,Nationalities,and Peoples'</option>
+                              <option value="Tigray">Tigray</option>                   
+                           </select>
+                           </div>
+                       </div>
+                       <div class="form-group mb-4">
+                        <label>Reason</label>
+                        <input type="text" 
+                        formControlName="reason"
+                        class="form-control" 
+                        name="reason"
+                         id="reason" 
+                         placeholder="First Name">
+                    </div>
+                     <!-- <div class="form-group mb-4">
+                         <label>Citizenship </label>
+                         <input type="text" 
+                         formControlName="citizenship"
+                         class="form-control"
+                          name="citizenship"
+                           id="citizenship"
+                            placeholder="Citizenship" >
+                     </div> -->
+                     
+                     
+                    
+                    </div>
+                  
+                </div>
+                <button class="btn btn-primary float-right" type="submit">submit</button>              
+            </form>     
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>

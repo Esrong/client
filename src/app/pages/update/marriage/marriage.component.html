@@ -1,0 +1,142 @@
+<div class="container-fluid">
+
+    <!-- start page title -->
+    <app-pagetitle title="Marriage Update" [breadcrumbItems]="breadCrumbItems"></app-pagetitle>
+    <!-- end page title -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title mb-4">Form</h4>
+            <form [formGroup]="createMarriageForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                    
+                    <div class="col-md-6">  
+                        <div class="form-group mb-4"> 
+                            <div class="form-group"> 
+                             <label>Region</label>
+                             <select class="form-control select2"  formControlName="region">
+                                <option value="Addis Ababa">Addis Ababa</option>
+                                <option value="Afar">Afar</option>    
+                                <option value="Amhara">Amhara</option>
+                                <option value="Benishangul-Gumuz">Benishangul-Gumuz</option>  
+                                <option value="Dire Dawa">Dire Dawa</option>
+                                <option value="Gambela">Harary</option>  
+                                <option value="Harari">Harari</option>
+                                <option value="Sidama">Sidama</option>   
+                                <option value="Somali">Somali</option>   
+                                <option value="Southern Nations,Nationalities,and Peoples' ">HSouthern Nations,Nationalities,and Peoples'</option>
+                                <option value="Tigray">Tigray</option>                   
+                             </select>
+                             </div>
+                         </div>
+             
+                        <div class="form-group mb-4">
+                             <label>Wereda</label>
+                             <input type="text" 
+                             formControlName="place"
+                             class="form-control" 
+                             name="place"
+                              id="place" 
+                              placeholder="Place">
+                         </div>
+                         <div class="form-group mb-4">
+                            <label>Marriage Date</label>
+                            <input type="text"
+                            formControlName="marriageDate"
+                             class="form-control"
+                              name="marriageDate" 
+                              id="marriageDate" 
+                              type="date" 
+                              value="2019-08-19"
+                              placeholder="Marriage Date" >
+                        </div>
+                      
+                        <div class="form-group mb-4"> 
+                            <div class="form-group"> 
+                             <label>Marriage Form</label>
+                             <select class="form-control select2" name="marriageForm" 
+                             id="marriageForm" formControlName="marriageForm">
+                                <option value="Law">By the law</option>
+                                <option value="Religion">Religion</option>                
+                             </select>
+                             </div>
+                         </div>
+                         <div class="form-group mb-4">
+                             <label>Groom ID</label>
+                             <input type="text"
+                             formControlName="groom"
+                              class="form-control" 
+                              name="groom" 
+                              id="groom" 
+                              placeholder="Groom ID" >
+                         </div>
+                         <div class="form-group mb-4">
+                             <label>Bride Id</label>
+                             <input type="text" 
+                             formControlName="bride"
+                             class="form-control"
+                              name="bride"
+                               id="bride" 
+                               placeholder="Bride ID" >
+                         </div>
+            
+                    </div>
+                    <div class="col-md-6">
+             
+                        <div class="form-group mb-4">
+                            <label>Child ID</label>
+                            <input type="text"
+                            formControlName="child"
+                            class="form-control" 
+                            name="child" 
+                            id="child"
+                            placeholder="Child Id" >
+                        </div>
+                        <div class="form-group mb-4">
+                            <label>Bride Witness One ID </label>
+                            <input type="text" 
+                            formControlName="brideWitnessOne"
+                            class="form-control"
+                            name="brideWitnessOne"
+                            id="brideWitnessOne"
+                                placeholder="brideWitnessOne" >
+                        </div>
+                        <div class="form-group mb-4">
+                            <label>Bride Witness Two ID </label>
+                            <input type="text" 
+                            formControlName="brideWitnessTwo"
+                            class="form-control"
+                            name="brideWitnessTwo"
+                            id="brideWitnessTwo"
+                            placeholder="brideWitnessTwo" >
+                        </div>
+                        <div class="form-group mb-4">
+                            <label>Groom Witness One ID </label>
+                            <input type="text" 
+                            formControlName="groomWitnessOne"
+                            class="form-control"
+                            name="groomWitnessOne"
+                            id="groomWitnessOne"
+                            placeholder="groomWitnessOne" >
+                        </div>
+                        <div class="form-group mb-4">
+                            <label>Groom Witness Two ID </label>
+                            <input type="text" 
+                            formControlName="groomWitnessTwo"
+                            class="form-control"
+                            name="groomWitnessTwo"
+                            id="groomWitnessTwo"
+                            placeholder="groomWitness Two" >
+                        </div>     
+                    </div>
+                  
+                </div>
+                <button class="btn btn-primary float-right" type="submit">Update</button>              
+            </form>     
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>

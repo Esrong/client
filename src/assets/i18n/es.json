@@ -1,0 +1,81 @@
+{
+  "HEADER": {
+    "SEARCH": "Search...",
+    "MEGA_MENU": "Mega Menu",
+
+    "APPLICATIONS": {
+      "TITLE": "Applications",
+      "ECOMMERCE": "Ecommerce",
+      "CALENDAR": "Calendar",
+      "EMAIL": "Email",
+      "PROJECTS": "Projects",
+      "TASKS": "Tasks",
+      "CONTACTS": "Contacts"
+    },
+    "EXTRA_PAGES": {
+      "TITLE": "Extra Pages",
+      "LIGHT_SIDEBAR": "Light Sidebar",
+      "COMPACT_SIDEBAR": "Compact Sidebar",
+      "HORIZONTAL_LAYOUT": "Horizontal layout",
+      "MAINTENANCE": "Maintenance",
+      "COMING SOON": "Coming Soon",
+      "TIMELINE": "Timeline",
+      "FAQ": "FAQs"
+    },
+    "LOGIN": {
+      "PROFILE": "Profile",
+      "MY_WALLET": "My Wallet",
+      "SETTINGS": "Settings",
+      "LOCK_SCREEN": "Lock screen",
+      "LOGOUT": "Logout"
+    }
+  },
+  "MENUITEMS": {
+    "MENU": {
+      "TEXT": "Menu"
+    },
+    "DASHBOARDS": {
+      "TEXT": "Dashboard",
+      "BADGE": "03"
+    },
+    "REGISTRATION":{
+      "TEXT":"Civil Registration",
+      "LIST":{
+        "BIRTH":"Birth",
+        "DEATH": "Death",
+        "MARRIAGE": "Marriage",
+        "DIVORCE": "Divorce",
+        "CIVIL":"Civil"
+      }
+    },
+    "CERTIFICATE":{
+      "TEXT":"Civil Certificate",
+      "LIST":{
+        "BIRTH":"Birth ",
+        "DEATH": "Death ",
+        "MARRIAGE": "Marriage ",
+        "DIVORCE": "Divorce "
+      }
+    },
+    "STATISTICS":{
+      "TEXT":"Civil Statistics",
+      "LIST":{
+        "BIRTH":"Birth ",
+        "DEATH": "Death ",
+        "MARRIAGE": "Marriage ",
+        "DEVORCE": "Divorce "
+    }
+    },
+    "ACCOUNT-MANAGER": {
+      "TEXT": "Account Manager",
+      "LIST": {
+        "CREATE": "Create Account",
+        "EDIT": "Edit Account",
+        "LIST": "List Component",
+        "PROFILE": "Profile Detail",
+        "PROFILE-E": "Profile Edit"
+      }
+    }
+
+  }
+}

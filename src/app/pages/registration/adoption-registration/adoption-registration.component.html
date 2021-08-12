@@ -1,0 +1,285 @@
+<div class="container-fluid">
+    <app-pagetitle title="ADOPTION BIRTH REGISTRATION" [breadcrumbItems]="breadCrumbItems"></app-pagetitle>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <!-- <h5 class="card-title">Registration Form</h5> -->
+          <div class="card-body">
+            <aw-wizard>
+              <aw-wizard-step stepTitle="ADOPTION INFORMATION">
+               
+                <!-- <div class="alert alert-success mb-4" role="alert">
+                  Enter  email address of created adccount so that the pesron it self can  reset password and instructions will be sent to him!
+                </div> -->
+               
+            
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title mb-4">ADOPTION</h4>
+                        <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+                          <ngb-alert type="danger" *ngIf="error" [dismissible]="true">{{ error }}</ngb-alert>
+                          <ngb-alert type="success" *ngIf="successmsg" [dismissible]="true">Marriage Id {{civils.groom}} is found please click NEXT to continue registeration.
+                          </ngb-alert>
+                          <div class="row">
+                              <div class="col-md-6">                            
+                               <div class="form-group mb-4">
+                                   <label> Civil ID </label>
+                                   <input type="text" 
+                                   formControlName="query"
+                                   class="form-control"
+                                   placeholder="Enter  Civil ID"  
+                                   [ngClass]="{'is-invalid': onsubmit && type.query.errors}"  />
+                                   <div *ngIf="onSubmit && type.query.errors" class="invalid-feedback">
+                                     <span *ngIf="type.query.errors.required">Civil Id is needed to continue.</span>
+                                   </div>
+                               </div>                            
+                              </div>
+                              <!-- <div class="col-md-6">                            
+                                <div class="form-group mb-4" *ngFor="let marriage of marriages" let i = index;>
+                                    <label>Result</label>
+                                 <p>{{marriage.id}}</p>
+                                 <p>{{marriage.place}}</p>
+                                </div>                            
+                               </div> -->
+                              
+                           
+                            
+                          </div>
+                          <button class="btn btn-primary float-right" type="submit">Submit</button>              
+                      </form> 
+                      
+                         
+                      </div>
+                    </div>
+                    <button  [disabled]="loading" awNextStep class="btn btn-success float-left" type="submit" >
+                      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1" ></span>
+                      Next Step
+                  </button>
+                  </div>
+            
+                </div>
+
+                
+              </aw-wizard-step>  
+             
+              <aw-wizard-step stepTitle="CHILD INFORMATION" awOptionalStep>
+     
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title mb-4">CHILD</h4>
+                   
+                        <form [formGroup]="createBirthForm" (ngSubmit)="onPush()">
+                            <div class="row">
+                                
+                                <div class="col-md-6">   
+                                    <!-- <div class="col-md-6">
+                                        <div class="form-group md-4">
+                                            <label >Father ID</label>
+                                            <input type="text" 
+                                            formControlName="fatherInfo"
+                                            class="form-control"
+                                             name="fatherInfo" 
+                                             id="fatherInfo" 
+                                             placeholder="Father ID" >
+                                        </div>
+                                        <div class="form-group md-4">
+                                            <label>Mother ID</label>
+                                            <input type="text" 
+                                            formControlName="motherInfo"
+                                            class="form-control" 
+                                            name="motherInfo" 
+                                            id="motherInfo" 
+                                            placeholder="Mother ID">
+                                        </div>
+                                        <div class="form-group md-4">
+                                            <label>Declarant other than parents Id</label>
+                                            <input type="text"  
+                                            formControlName="otherThanParent"
+                                            class="form-control"
+                                             name="otherThanParent"
+                                              id="otherThanParent"
+                                               placeholder="other than parents Id">
+                                        </div>
+                                     </div>                      -->
+                                     <!-- <div class="form-group mb-4" *ngFor="let civil of civils; let i =index">
+                                       <label >Search</label>
+                                       <input type="text"
+                                       id="id_{{i}}"
+                                       value="{{civil._id}}"
+                                       class="form-control">
+                                     </div> -->
+
+                                     <div class="form-group mb-4">
+                                         <label>First Name</label>
+                                         <input type="text" 
+                                         formControlName="name"
+                                         class="form-control" 
+                                         name="name"
+                                          id="name" 
+                                          placeholder="First Name">
+                                     </div>
+                                     <div class="form-group mb-4">
+                                         <label>Father Name</label>
+                                         <input type="text"
+                                         formControlName="fname"
+                                          class="form-control" 
+                                          name="fname" 
+                                          id="fname" 
+                                          placeholder="Last Name" >
+                                     </div>
+                                     <div class="form-group mb-4">
+                                         <label>Grand Name</label>
+                                         <input type="text" 
+                                         formControlName="gname"
+                                         class="form-control"
+                                          name="gname"
+                                           id="gname" 
+                                           placeholder="Grand Name" >
+                                     </div>
+                                     <div class="form-group mb-4">  
+                                         <label>Gender</label>
+                                         <select name="gender" formControlName="gender" class="form-control">
+                                             <option value="Male">Male</option>
+                                             <option value="Female">Female</option>
+                                 
+                                         </select>
+                                     
+                                     </div>
+                                     <div class="form-group mb-4">
+                                         <label>Birth Date</label>
+                                         <input type="text"
+                                         formControlName="birthDate"
+                                          class="form-control"
+                                           name="birthDate" 
+                                           type="date" 
+                                           value="2019-08-19"
+                                           id="birthDate" 
+                                           placeholder="Birth Date" >
+                                     </div>
+                                     <div class="form-group mb-4">
+                                         <label>Age</label>
+                                         <input type="text" 
+                                         formControlName="age"
+                                         class="form-control" 
+                                         name="age" 
+                                         id="age"
+                                          placeholder="Age" >
+                                     </div>
+                                     <div class="form-group mb-4">
+                                         <label >Place of birth</label>
+                                         <input type="text" 
+                                         formControlName="birthPlace"
+                                         class="form-control"
+                                          name="birthPlace" 
+                                          id="birthPlace"
+                                          placeholder="Place of birth" >
+                                     </div>  
+                        
+                                </div>
+                                <div  class="col-md-6">
+                                 <div class="form-group mb-4">
+                                     <label>Aid during Birth</label>
+                                     <input type="text" 
+                                     formControlName="birthAid"
+                                     class="form-control"
+                                     name="birthAid" 
+                                     id="birthAid" 
+                                     placeholder="Aid during birth" >
+                                 </div>
+                                 <div class="form-group mb-4">
+                                     <label>Ethnic Origin</label>
+                                     <input type="text"
+                                     formControlName="ethnicOrigin"
+                                      class="form-control" 
+                                      name="ethnicOrigin" 
+                                      id="ethnicOrigin"
+                                       placeholder="ethnic origin" >
+                                 </div>
+                                 <div class="form-group mb-4">
+                                     <label> Citizenship </label>
+                                     <input type="text" 
+                                     formControlName="citizenship"
+                                     class="form-control"
+                                      name="citizenship"
+                                       id="citizenship"
+                                        placeholder="Citizenship" >
+                                 </div>
+                                 
+                                 <div class="form-group mb-4"> 
+                                  <div class="form-group"> 
+                                   <label>Region</label>
+                                   <select class="form-control select2"  formControlName="region">
+                                      <option value = "Oromia">Oromia</option>
+                                      <option value = "Addis Ababa">Addis Ababa</option>
+                                      <option value = "Afar">Afar</option>    
+                                      <option value = "Amhara">Amhara</option>
+                                      <option value = "Benishangul-Gumuz">Benishangul-Gumuz</option>  
+                                      <option value = "Dire Dawa">Dire Dawa</option>
+                                      <option value = "Gambela">Harary</option>  
+                                      <option value = "Harari">Harari</option>
+                                      <option value = "Sidama">Sidama</option>   
+                                      <option value = "Somali">Somali</option>   
+                                      <option value = "Southern Nations,Nationalities,and Peoples">Southern Nations,Nationalities,and Peoples</option>
+                                      <option value = "Tigray">Tigray</option>                   
+                                   </select>
+                                   </div>
+                               </div>
+                                 <div class="form-group mb-4">
+                                     <label>zone</label>
+                                     <input type="text" 
+                                     formControlName="zone"
+                                     class="form-control" 
+                                     name="zone" 
+                                     id="zone"
+                                      placeholder="zone" >
+                                 </div>
+                                 <div class="form-group mb-4">
+                                     <label>wereda</label>
+                                     <input type="text" 
+                                     formControlName="wereda"
+                                     class="form-control"
+                                      name="wereda" 
+                                      id="wereda"
+                                      placeholder="wereda" >
+                                 </div>
+                                 <div class="form-group mb-4">
+                                     <label>Kebele</label>
+                                     <input type="text" 
+                                     formControlName="kebele"
+                                     class="form-control"
+                                      name="kebele"
+                                       id="kebele"
+                                        placeholder="kebele" >
+                                 </div>
+                                 
+                                
+                                </div>
+                              
+                            </div>
+                            <button class="btn btn-primary float-right" type="submit">Submit</button>              
+                        </form>     
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button [disabled]="loading" awPreviousStep class="btn btn-success float-left" type="submit" >
+                  <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1" ></span>
+                  Back Step
+              </button>
+            
+             <!-- <button type="button"  awPreviousStep  class="btn btn-primary">Back</button> -->
+              </aw-wizard-step>      
+            </aw-wizard>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+    <!-- end row -->
+  </div>
+  
+  
