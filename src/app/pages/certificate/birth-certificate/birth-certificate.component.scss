@@ -1,0 +1,48 @@
+.container{
+    display: flex;
+    padding: 20px;
+    background: repeating-linear-gradient(to bottom right, lightblue 60% 50px, lightseagreen 83% 50px);
+}
+.wrapper{
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    // background: linear-gradient(to bottom right, red 60%, blue 83%);
+    background: rgba($color: #fff, $alpha: .8);
+}
+.id-numbers{
+    align-self: flex-end;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.banner-and-header{
+    align-self: center;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.space-between{
+    display: flex;
+    justify-content: space-between;
+}
+.flex-start{
+    display: flex;
+    justify-content: flex-start;
+}
+.space-evenly{
+    display: flex;
+    justify-content: space-evenly;
+}
+.gender-and-birthdate label{
+    margin-right: 20px;
+}
+input{
+    border: none;
+    border-bottom: 1px solid #000;
+}
+
+// label{
+//     margin-right: 20px;
+// }
