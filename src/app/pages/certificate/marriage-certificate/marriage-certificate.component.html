@@ -1,1 +1,80 @@
-<p>marriage-certificate works!</p>
+<div class="container">
+    <div class="top wrapper">
+        <div class="id-numbers">
+            <div class="left">
+                <label for="marriage-reg-form-number" class="first-label">Marriage Register Form Number <input type="text"></label>
+                <label for="marriage-reg-id" class="first-label">Marriage Registeration Unique Id number <input type="text"></label>
+            </div>
+            <div class="right">
+                <label for="br-form-number">Wife's Birth Registration Unique Id Number <input type="text"></label>
+                <label for="br-id-number">Husband's Birth Registration Unique Id Number <input type="text"></label>
+            </div>    
+        </div>
+        <div class="banner-and-header-and-image">
+            <div class="bride-photo">
+                <img [src]="bride_image" alt="Bride's photo" width="150px" height="200px">
+            </div>
+            <div class="banner-and-header">
+                <div class="banner">
+                    <img [src]="image_src" alt="" width="200px" height="100px">
+                </div>
+                <div class="header">
+                    <h1>FDRE Civil Registration and Vital Statistics</h1>
+                    <h2>Marriage Certificate</h2>
+                </div>
+            </div>
+            <div class="groom-photo">
+                <img [src]="groom_image" alt="Groom's photo" width="150px" height="200px">
+            </div>
+        </div>
+      </div>
+        <div class="bottom wrapper">
+            <div class="wife-and-husband grid">
+                <div class="wife item">
+                    <div class="full-name flex-start">
+                        <label for="name">Wife's Name <input type="text"></label>
+                        <label for="fname">Father's Name <input type="text"></label>
+                        <label for="gfname">Grandfather's Name <input type="text"></label>
+                    </div>
+                    <div class="gender-and-birthdate flex-start">
+                        <label for="birthdate">Date of Birth <input type="text"></label>
+                        <label for="nationality">Nationality <input type="text"></label>
+                    </div>
+                </div>
+
+                <div class="husband item">
+                    <div class="full-name flex-start">
+                        <label for="name">Husband's Name <input type="text"></label>
+                        <label for="fname">Father's Name <input type="text"></label>
+                        <label for="gfname">Grandfather's Name <input type="text"></label>
+                    </div>
+                    <div class="gender-and-birthdate flex-start">
+                        <label for="birthdate">Date of Birth <input type="text"></label>
+                        <label for="nationality">Nationality <input type="text"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="date flex-start">
+                <label for="marriage-date">Date of Marriage <input type="text"></label>
+            </div>
+            <div class="marriage-place space-between">
+                <label for="marriage-place">Place of Marriage Registration: Region/City Administration <input type="text"> Zone/City Administration <input type="text"> </label>
+                <label for="city">City <input type="text"> Sub City <input type="text"> Woreda/Special Woreda <input type="text">Kebele <input type="text"></label>
+            </div>
+            <div class="date flex-start">
+                <label for="registration-date"> Date of Marriage Registration <input type="text"></label>
+                <label for="certificate-issue-date">Date of Certificate Issued <input type="text"></label>
+            </div>
+            <div class="registrar-officer-fullname full-name space-between">
+                <label for="officer-name">Name of Civil Registrar <input type="text"></label>
+                <label for="officer-fname">Father's Name <input type="text"></label>
+                <label for="officer-gfname">Grand Father's Name <input type="text"></label>
+            </div>
+            <div class="signature-and-seal space-between">
+                <label for="signature">Signature <input type="text"></label>
+                <label for="seal">Seal <input type="text"></label>
+            </div>
+        </div>
+      </div>
+
+

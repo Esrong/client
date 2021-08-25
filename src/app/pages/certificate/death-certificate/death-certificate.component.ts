@@ -9,7 +9,7 @@ import html2canvas from 'html2canvas';
   styleUrls: ['./death-certificate.component.scss']
 })
 export class DeathCertificateComponent implements OnInit {
-
+  image_src: string = "assets/images/Flag_of_Ethiopia.jpg";
 
   ngOnInit(): void {
   }
