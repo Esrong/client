@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./divorce-certificate.component.scss']
 })
 export class DivorceCertificateComponent implements OnInit {
-
+	image_src: string = "assets/images/Flag_of_Ethiopia.jpg";
   constructor() { }
 
   ngOnInit(): void {
